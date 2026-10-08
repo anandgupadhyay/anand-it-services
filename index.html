@@ -1,0 +1,1014 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Anand IT Services | Android, iOS, Web, SEO & Digital Marketing</title>
+  <meta name="description" content="Anand IT Services led by Anand Upadhyay delivers enterprise-grade Android, iOS, Full-Stack Web Development, SEO, and high-ROI Digital Marketing.">
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              black: '#0A0A0C',
+              dark: '#121217',
+              surface: '#1A1A22',
+              border: '#272732',
+              pink: '#E61A52',
+              pinkLight: '#FF336E',
+              accent: '#E61A52'
+            }
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            display: ['"Space Grotesk"', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Custom subtle grid background */
+    .bg-grid-pattern {
+      background-size: 36px 36px;
+      background-image: 
+        linear-gradient(to right, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+    }
+    .glow-effect {
+      box-shadow: 0 0 50px -10px rgba(230, 26, 82, 0.25);
+    }
+    .glow-card:hover {
+      box-shadow: 0 15px 35px -10px rgba(230, 26, 82, 0.18);
+      border-color: rgba(230, 26, 82, 0.45);
+    }
+    /* Toast transition */
+    #toast {
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
+    }
+  </style>
+</head>
+
+<body class="bg-brand-black text-gray-200 font-sans antialiased selection:bg-brand-pink selection:text-white relative overflow-x-hidden">
+
+  <div id="toast" class="fixed bottom-6 right-6 z-50 transform translate-y-24 opacity-0 pointer-events-none flex items-center gap-3 bg-brand-surface border border-brand-pink/50 text-white px-5 py-3.5 rounded-xl shadow-2xl backdrop-blur-md">
+    <svg class="w-5 h-5 text-brand-pink flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path>
+    </svg>
+    <span id="toast-message" class="text-sm font-medium">Copied to clipboard!</span>
+  </div>
+
+  <header class="sticky top-0 z-40 bg-brand-black/90 backdrop-blur-lg border-b border-brand-border">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      
+      <!-- Brand Logo Recreation matching reference -->
+      <a href="#" class="flex items-center gap-2 group focus:outline-none">
+        <div class="flex items-center">
+          <svg class="h-10 sm:h-12 w-auto" viewBox="0 0 260 90" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Anand IT Services Logo">
+            <!-- 'A' -->
+            <path d="M12 72L36 12H48L72 72H57L51 55H33L27 72H12ZM37 42H47L42 27L37 42Z" fill="#FFFFFF"/>
+            <!-- Stylized 'n' with extended terminal -->
+            <path d="M78 72V30H92V36.5C95.5 31.5 102 28.5 109 28.5C121 28.5 128 36 128 49V64C128 72 133 76 140 76C147 76 152 71.5 152 64V30H166V64C166 79 155 89 140 89C125 89 114 79 114 65V50C114 41 108 37 101 37C94 37 92 42 92 49V72H78Z" fill="#FFFFFF"/>
+            <!-- 'IT' -->
+            <path d="M174 20H188V50H174V20ZM168 20H194V29H168V20Z" fill="#FFFFFF"/>
+            <path d="M198 20H226V30H219V50H205V30H198V20Z" fill="#FFFFFF"/>
+            <!-- 'Services' Sub-word -->
+            <text x="166" y="74" fill="#FFFFFF" font-family="'Space Grotesk', sans-serif" font-weight="700" font-size="22" letter-spacing="-0.5">Services</text>
+            <!-- Distinctive Pink Cross/Antenna Emblem -->
+            <g transform="translate(208, 12)">
+              <path d="M22 6C15 6 9 10 7 17C12 17 17 15 22 11C27 15 32 17 37 17C35 10 29 6 22 6Z" fill="#E61A52"/>
+              <path d="M22 12V34M12 24H32" stroke="#E61A52" stroke-width="5" stroke-linecap="round"/>
+            </g>
+          </svg>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation Links -->
+      <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-gray-300">
+        <a href="#services" class="hover:text-brand-pink transition-colors">Services</a>
+        <a href="#about" class="hover:text-brand-pink transition-colors">About</a>
+        <a href="#process" class="hover:text-brand-pink transition-colors">Process</a>
+        <a href="#why-us" class="hover:text-brand-pink transition-colors">Why Choose Us</a>
+        <a href="#contact" class="hover:text-brand-pink transition-colors">Contact</a>
+      </nav>
+
+      <!-- Direct Contact CTA Actions -->
+      <div class="hidden sm:flex items-center gap-3">
+        <a href="tel:+919537384060" class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl border border-brand-border hover:border-gray-500 bg-brand-surface/70 text-xs font-semibold text-gray-200 transition-all hover:bg-brand-surface">
+          <svg class="w-4 h-4 text-brand-pink" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+          </svg>
+          <span>+91 9537384060</span>
+        </a>
+        <a href="#contact" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-brand-pink hover:bg-brand-pinkLight text-white text-xs font-bold tracking-wide uppercase shadow-lg shadow-brand-pink/25 transition-all">
+          <span>Get Quote</span>
+        </a>
+      </div>
+
+      <!-- Mobile Hamburger Button -->
+      <button id="mobile-menu-btn" class="md:hidden p-2 rounded-lg bg-brand-surface border border-brand-border text-gray-400 hover:text-white focus:outline-none" aria-label="Toggle Navigation">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path id="hamburger-icon" stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+      </button>
+
+    </div>
+
+    <!-- Mobile Dropdown Menu -->
+    <div id="mobile-menu" class="hidden md:hidden border-b border-brand-border bg-brand-dark px-6 py-6 space-y-4">
+      <a href="#services" class="block text-base font-medium text-gray-200 hover:text-brand-pink mobile-link">Services</a>
+      <a href="#about" class="block text-base font-medium text-gray-200 hover:text-brand-pink mobile-link">About Owner & Vision</a>
+      <a href="#process" class="block text-base font-medium text-gray-200 hover:text-brand-pink mobile-link">Development Process</a>
+      <a href="#why-us" class="block text-base font-medium text-gray-200 hover:text-brand-pink mobile-link">Why Choose Us</a>
+      <a href="#contact" class="block text-base font-medium text-brand-pink font-semibold mobile-link">Get In Touch</a>
+      
+      <div class="pt-4 border-t border-brand-border flex flex-col gap-2.5">
+        <a href="tel:+919537384060" class="flex items-center justify-center gap-2.5 py-3 rounded-xl bg-brand-surface border border-brand-border text-white text-sm font-semibold">
+          <svg class="w-4 h-4 text-brand-pink" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+          </svg>
+          Call +91 9537384060
+        </a>
+        <a href="https://wa.me/919537384060?text=Hi%20Anand%2C%20I%20would%20like%20to%20discuss%20a%20project%20with%20Anand%20IT%20Services." target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-2.5 py-3 rounded-xl bg-[#25D366] text-black text-sm font-bold">
+          <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+            <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+          </svg>
+          Chat on WhatsApp
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <section class="relative bg-brand-black bg-grid-pattern pt-20 pb-28 border-b border-brand-border overflow-hidden">
+    <!-- Ambient glowing backdrop blobs -->
+    <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-brand-pink/15 rounded-full blur-3xl pointer-events-none"></div>
+    <div class="absolute bottom-0 right-10 w-80 h-80 bg-purple-600/10 rounded-full blur-3xl pointer-events-none"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      
+      <!-- Top Badge -->
+      <div class="flex justify-center">
+        <div class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-brand-surface border border-brand-border text-xs sm:text-sm font-medium text-gray-300 shadow-sm">
+          <span class="w-2.5 h-2.5 rounded-full bg-brand-pink animate-pulse"></span>
+          <span>End-to-End Technology & Digital Growth Firm</span>
+        </div>
+      </div>
+
+      <!-- Main Headline -->
+      <div class="mt-8 text-center max-w-4xl mx-auto">
+        <h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold font-display tracking-tight text-white leading-tight">
+          Architecting High-Impact <br class="hidden sm:inline">
+          <span class="text-transparent bg-clip-text bg-gradient-to-r from-white via-gray-200 to-brand-pink">
+            Mobile, Web & Growth
+          </span> Solutions
+        </h1>
+        <p class="mt-6 text-lg sm:text-xl text-gray-400 max-w-2xl mx-auto leading-relaxed font-normal">
+          From native mobile architecture and scalable web platforms to top-tier SEO rankings and revenue-driven digital campaigns. Led by <strong class="text-white font-semibold">Anand Upadhyay</strong>.
+        </p>
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="mt-10 flex flex-wrap items-center justify-center gap-4">
+        <!-- Call CTA -->
+        <a href="tel:+919537384060" class="inline-flex items-center justify-center gap-3 px-7 py-3.5 rounded-xl bg-brand-pink hover:bg-brand-pinkLight text-white font-bold text-base shadow-xl shadow-brand-pink/25 hover:shadow-brand-pink/40 transition-all transform hover:-translate-y-0.5">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+          </svg>
+          <span>Call Directly</span>
+        </a>
+
+        <!-- WhatsApp CTA -->
+        <a href="https://wa.me/919537384060?text=Hi%20Anand%2C%20I%20would%20like%20to%20consult%20regarding%20a%20project%20for%20my%20business." target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-3 px-7 py-3.5 rounded-xl bg-brand-surface border border-emerald-500/40 hover:border-emerald-400 text-white font-semibold text-base transition-all hover:bg-emerald-500/10">
+          <svg class="w-5 h-5 text-emerald-400 fill-current" viewBox="0 0 24 24">
+            <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+          </svg>
+          <span>Chat on WhatsApp</span>
+        </a>
+
+        <!-- Email CTA -->
+        <a href="mailto:anandupadhyay03@gmail.com" class="inline-flex items-center justify-center gap-3 px-6 py-3.5 rounded-xl bg-brand-surface border border-brand-border hover:border-gray-500 text-gray-200 font-semibold text-base transition-all hover:bg-brand-dark">
+          <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+          </svg>
+          <span>Email Us</span>
+        </a>
+      </div>
+
+      <!-- Key Value Pillars -->
+      <div class="mt-16 grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
+        <div class="bg-brand-surface/60 border border-brand-border p-4 rounded-xl text-center">
+          <p class="text-2xl font-bold font-display text-white">5+ Core</p>
+          <p class="text-xs text-gray-400 mt-1 uppercase tracking-wider">Turnkey Disciplines</p>
+        </div>
+        <div class="bg-brand-surface/60 border border-brand-border p-4 rounded-xl text-center">
+          <p class="text-2xl font-bold font-display text-brand-pink">Direct Access</p>
+          <p class="text-xs text-gray-400 mt-1 uppercase tracking-wider">No Middlemen</p>
+        </div>
+        <div class="bg-brand-surface/60 border border-brand-border p-4 rounded-xl text-center">
+          <p class="text-2xl font-bold font-display text-white">100%</p>
+          <p class="text-xs text-gray-400 mt-1 uppercase tracking-wider">Clean Code Delivery</p>
+        </div>
+        <div class="bg-brand-surface/60 border border-brand-border p-4 rounded-xl text-center">
+          <p class="text-2xl font-bold font-display text-brand-pink">Fast & Scalable</p>
+          <p class="text-xs text-gray-400 mt-1 uppercase tracking-wider">Modern Architecture</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="services" class="py-24 bg-brand-dark border-b border-brand-border relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Section Header -->
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span class="text-xs font-bold uppercase tracking-widest text-brand-pink bg-brand-pink/10 px-3.5 py-1.5 rounded-full border border-brand-pink/20">
+          Our Capabilities
+        </span>
+        <h2 class="mt-4 text-3xl sm:text-5xl font-bold font-display text-white">
+          Comprehensive Tech & Growth Services
+        </h2>
+        <p class="mt-4 text-base sm:text-lg text-gray-400">
+          We cover the entire lifecycle of your digital product: from app development and custom web systems to organic search engine supremacy and paid customer acquisition.
+        </p>
+      </div>
+
+      <!-- Services Grid: 5 Services (Top 3 then Bottom 2) -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        
+        <!-- 1. Android App Development -->
+        <div class="glow-card bg-brand-surface border border-brand-border rounded-2xl p-7 transition-all duration-300 flex flex-col justify-between">
+          <div>
+            <!-- Icon -->
+            <div class="w-14 h-14 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400 mb-6">
+              <svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+                <rect x="5" y="2" width="14" height="20" rx="3" stroke-width="1.8"></rect>
+                <line x1="12" y1="18" x2="12.01" y2="18" stroke-width="2.5" stroke-linecap="round"></line>
+                <path d="M8 5h8" stroke-linecap="round"></path>
+              </svg>
+            </div>
+
+            <span class="text-xs font-semibold text-emerald-400 tracking-wider uppercase">Mobile Engineering</span>
+            <h3 class="text-2xl font-bold text-white mt-1 mb-3">Android App Development</h3>
+            <p class="text-gray-400 text-sm leading-relaxed mb-6">
+              Robust, high-performance native Android applications designed according to Google Material Design 3 guidelines and clean architecture standards.
+            </p>
+
+            <div class="space-y-2.5 border-t border-brand-border/70 pt-5">
+              <div class="flex items-center gap-2.5 text-xs text-gray-300">
+                <span class="w-1.5 h-1.5 rounded-full bg-brand-pink"></span>
+                <span>Native Kotlin & Modern Java Development</span>
+              </div>
+              <div class="flex items-center gap-2.5 text-xs text-gray-300">
+                <span class="w-1.5 h-1.5 rounded-full bg-brand-pink"></span>
+                <span>Cross-Platform Flutter & Jetpack Compose</span>
+              </div>
+              <div class="flex items-center gap-2.5 text-xs text-gray-300">
+                <span class="w-1.5 h-1.5 rounded-full bg-brand-pink"></span>
+                <span>Google Play Store Deployment & Compliance</span>
+              </div>
+              <div class="flex items-center gap-2.5 text-xs text-gray-300">
+                <span class="w-1.5 h-1.5 rounded-full bg-brand-pink"></span>
+                <span>Offline-First, Push Alerts & API Integrations</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-8 pt-4 border-t border-brand-border/50">
+            <a href="https://wa.me/919537384060?text=Hello%20Anand%2C%20I%20am%20interested%20in%20Android%20App%20Development." target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-xs font-bold text-brand-pink hover:text-white transition-colors">
+              <span>Discuss Android Project</span>
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- 2. iOS App Development -->
+        <div class="glow-card bg-brand-surface border border-brand-border rounded-2xl p-7 transition-all duration-300 flex flex-col justify-between">
+          <div>
+            <!-- Icon -->
+            <div class="w-14 h-14 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center text-blue-400 mb-6">
+              <svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
+                <path d="M11 6h2" stroke-linecap="round"></path>
+              </svg>
+            </div>
+
+            <span class="text-xs font-semibold text-blue-400 tracking-wider uppercase">Apple Ecosystem</span>
+            <h3 class="text-2xl font-bold text-white mt-1 mb-3">iOS App Development</h3>
+            <p class="text-gray-400 text-sm leading-relaxed mb-6">
+              Fluid, secure, and privacy-conscious iPhone and iPad applications engineered using Apple's latest Swift and SwiftUI paradigms.
+            </p>
+
+            <div class="space-y-2.5 border-t border-brand-border/70 pt-5">
+              <div class="flex items-center gap-2.5 text-xs text-gray-300">
+                <span class="w-1.5 h-1.5 rounded-full bg-brand-pink"></span>
+                <span>Swift, SwiftUI & Apple Human Interface Design</span>
+              </div>
+              <div class="flex items-center gap-2.5 text-xs text-gray-300">
+                <span class="w-1.5 h-1.5 rounded-full bg-brand-pink"></span>
+                <span>App Store Submission & Review Guidelines Prep</span>
+              </div>
+              <div class="flex items-center gap-2.5 text-xs text-gray-300">
+                <span class="w-1.5 h-1.5 rounded-full bg-brand-pink"></span>
+                <span>In-App Purchases, Apple Pay & Biometrics</span>
+              </div>
+              <div class="flex items-center gap-2.5 text-xs text-gray-300">
+                <span class="w-1.5 h-1.5 rounded-full bg-brand-pink"></span>
+                <span>Smooth 60/120 FPS UI & Strict Privacy Controls</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-8 pt-4 border-t border-brand-border/50">
+            <a href="https://wa.me/919537384060?text=Hello%20Anand%2C%20I%20am%20interested%20in%20iOS%20App%20Development." target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-xs font-bold text-brand-pink hover:text-white transition-colors">
+              <span>Discuss iOS Project</span>
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- 3. Web Development -->
+        <div class="glow-card bg-brand-surface border border-brand-border rounded-2xl p-7 transition-all duration-300 flex flex-col justify-between">
+          <div>
+            <!-- Icon -->
+            <div class="w-14 h-14 rounded-xl bg-brand-pink/10 border border-brand-pink/20 flex items-center justify-center text-brand-pink mb-6">
+              <svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
+              </svg>
+            </div>
+
+            <span class="text-xs font-semibold text-brand-pink tracking-wider uppercase">Full-Stack Web</span>
+            <h3 class="text-2xl font-bold text-white mt-1 mb-3">Web Development</h3>
+            <p class="text-gray-400 text-sm leading-relaxed mb-6">
+              Lightning-fast, mobile-first websites, portals, SaaS web apps, and bespoke management systems engineered with modern technologies.
+            </p>
+
+            <div class="space-y-2.5 border-t border-brand-border/70 pt-5">
+              <div class="flex items-center gap-2.5 text-xs text-gray-300">
+                <span class="w-1.5 h-1.5 rounded-full bg-brand-pink"></span>
+                <span>React, Next.js, Node.js, PHP & Tailwind CSS</span>
+              </div>
+              <div class="flex items-center gap-2.5 text-xs text-gray-300">
+                <span class="w-1.5 h-1.5 rounded-full bg-brand-pink"></span>
+                <span>Corporate Portfolios, Landing Pages & Custom CRM</span>
+              </div>
+              <div class="flex items-center gap-2.5 text-xs text-gray-300">
+                <span class="w-1.5 h-1.5 rounded-full bg-brand-pink"></span>
+                <span>E-Commerce, Database Design & API Integrations</span>
+              </div>
+              <div class="flex items-center gap-2.5 text-xs text-gray-300">
+                <span class="w-1.5 h-1.5 rounded-full bg-brand-pink"></span>
+                <span>100/100 Core Web Vitals & Speed Optimization</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-8 pt-4 border-t border-brand-border/50">
+            <a href="https://wa.me/919537384060?text=Hello%20Anand%2C%20I%20am%20interested%20in%20Web%20Development%20services." target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-xs font-bold text-brand-pink hover:text-white transition-colors">
+              <span>Discuss Web Project</span>
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Second Row: SEO & Digital Marketing -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
+        
+        <!-- 4. Search Engine Optimization (SEO) -->
+        <div class="glow-card bg-brand-surface border border-brand-border rounded-2xl p-7 transition-all duration-300 flex flex-col justify-between">
+          <div>
+            <div class="w-14 h-14 rounded-xl bg-purple-500/10 border border-purple-500/20 flex items-center justify-center text-purple-400 mb-6">
+              <svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                <path stroke-linecap="round" stroke-linejoin="round" d="M10 13l2-2 3 3"></path>
+              </svg>
+            </div>
+
+            <span class="text-xs font-semibold text-purple-400 tracking-wider uppercase">Organic Authority</span>
+            <h3 class="text-2xl font-bold text-white mt-1 mb-3">Search Engine Optimization (SEO)</h3>
+            <p class="text-gray-400 text-sm leading-relaxed mb-6">
+              Data-backed SEO frameworks that elevate your business to Google's #1 page, delivering sustainable organic inbound inquiries month over month.
+            </p>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 border-t border-brand-border/70 pt-5">
+              <div class="flex items-center gap-2 text-xs text-gray-300">
+                <span class="w-1.5 h-1.5 rounded-full bg-brand-pink"></span>
+                <span>Deep Technical & Architecture SEO</span>
+              </div>
+              <div class="flex items-center gap-2 text-xs text-gray-300">
+                <span class="w-1.5 h-1.5 rounded-full bg-brand-pink"></span>
+                <span>High-Intent Commercial Keyword Research</span>
+              </div>
+              <div class="flex items-center gap-2 text-xs text-gray-300">
+                <span class="w-1.5 h-1.5 rounded-full bg-brand-pink"></span>
+                <span>On-Page Metadata & Content Strategy</span>
+              </div>
+              <div class="flex items-center gap-2 text-xs text-gray-300">
+                <span class="w-1.5 h-1.5 rounded-full bg-brand-pink"></span>
+                <span>Local Search & Google Business Profile</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-8 pt-4 border-t border-brand-border/50">
+            <a href="https://wa.me/919537384060?text=Hello%20Anand%2C%20I%20want%20to%20rank%20my%20website%20with%20SEO." target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-xs font-bold text-brand-pink hover:text-white transition-colors">
+              <span>Request Free SEO Audit</span>
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- 5. Digital Marketing -->
+        <div class="glow-card bg-brand-surface border border-brand-border rounded-2xl p-7 transition-all duration-300 flex flex-col justify-between">
+          <div>
+            <div class="w-14 h-14 rounded-xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-400 mb-6">
+              <svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
+              </svg>
+            </div>
+
+            <span class="text-xs font-semibold text-amber-400 tracking-wider uppercase">Paid Acquisition & ROI</span>
+            <h3 class="text-2xl font-bold text-white mt-1 mb-3">Digital Marketing & Paid Ads</h3>
+            <p class="text-gray-400 text-sm leading-relaxed mb-6">
+              Targeted, ROI-focused lead generation and customer conversion campaigns engineered across search, programmatic networks, and performance channels.
+            </p>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 border-t border-brand-border/70 pt-5">
+              <div class="flex items-center gap-2 text-xs text-gray-300">
+                <span class="w-1.5 h-1.5 rounded-full bg-brand-pink"></span>
+                <span>Google Search, Display & Performance Max</span>
+              </div>
+              <div class="flex items-center gap-2 text-xs text-gray-300">
+                <span class="w-1.5 h-1.5 rounded-full bg-brand-pink"></span>
+                <span>High-Converting Lead Funnels & Copy</span>
+              </div>
+              <div class="flex items-center gap-2 text-xs text-gray-300">
+                <span class="w-1.5 h-1.5 rounded-full bg-brand-pink"></span>
+                <span>Targeted B2B & B2C Audience Retargeting</span>
+              </div>
+              <div class="flex items-center gap-2 text-xs text-gray-300">
+                <span class="w-1.5 h-1.5 rounded-full bg-brand-pink"></span>
+                <span>CPA Optimization & Transparent Reporting</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-8 pt-4 border-t border-brand-border/50">
+            <a href="https://wa.me/919537384060?text=Hello%20Anand%2C%20I%20would%20like%20to%20run%20Digital%20Marketing%20campaigns." target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-xs font-bold text-brand-pink hover:text-white transition-colors">
+              <span>Scale With Performance Ads</span>
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <section id="about" class="py-24 bg-brand-black border-b border-brand-border relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        
+        <!-- Left: Profile / Founder Focus Card -->
+        <div class="lg:col-span-5">
+          <div class="bg-gradient-to-br from-brand-surface to-brand-dark p-8 rounded-3xl border border-brand-border relative overflow-hidden">
+            <div class="absolute -right-12 -top-12 w-48 h-48 bg-brand-pink/20 rounded-full blur-3xl pointer-events-none"></div>
+
+            <div class="w-20 h-20 rounded-2xl bg-brand-pink/15 border border-brand-pink/30 flex items-center justify-center text-brand-pink font-display font-bold text-3xl mb-6">
+              AU
+            </div>
+
+            <span class="text-xs uppercase font-bold text-brand-pink tracking-widest">Founder & Lead Technologist</span>
+            <h3 class="text-3xl font-bold font-display text-white mt-1">Anand Upadhyay</h3>
+            <p class="text-sm text-gray-400 mt-2">Owner at Anand IT Services</p>
+
+            <div class="mt-6 pt-6 border-t border-brand-border space-y-3">
+              <div class="flex items-center gap-3 text-sm">
+                <span class="text-gray-400">Mobile:</span>
+                <a href="tel:+919537384060" class="font-medium text-white hover:text-brand-pink transition-colors">+91 9537384060</a>
+              </div>
+              <div class="flex items-center gap-3 text-sm">
+                <span class="text-gray-400">Direct Email:</span>
+                <a href="mailto:anandupadhyay03@gmail.com" class="font-medium text-white hover:text-brand-pink transition-colors">anandupadhyay03@gmail.com</a>
+              </div>
+              <div class="flex items-center gap-3 text-sm">
+                <span class="text-gray-400">Consultation:</span>
+                <span class="text-emerald-400 font-medium">Available for New Projects</span>
+              </div>
+            </div>
+
+            <div class="mt-8 flex gap-3">
+              <button onclick="copyToClipboard('+919537384060', 'Phone number copied!')" class="flex-1 py-2.5 px-3 rounded-xl bg-brand-surface border border-brand-border hover:border-gray-500 text-xs font-semibold text-gray-300 transition-all text-center">
+                Copy Number
+              </button>
+              <button onclick="copyToClipboard('anandupadhyay03@gmail.com', 'Email address copied!')" class="flex-1 py-2.5 px-3 rounded-xl bg-brand-surface border border-brand-border hover:border-gray-500 text-xs font-semibold text-gray-300 transition-all text-center">
+                Copy Email
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Story, Values and Direct Accountability -->
+        <div class="lg:col-span-7">
+          <span class="text-xs font-bold uppercase tracking-widest text-brand-pink bg-brand-pink/10 px-3.5 py-1.5 rounded-full border border-brand-pink/20">
+            Direct Leadership & Accountability
+          </span>
+          <h2 class="mt-4 text-3xl sm:text-4xl font-bold font-display text-white leading-tight">
+            Engineering Excellence Without the Agency Red Tape
+          </h2>
+          <p class="mt-5 text-gray-300 text-base sm:text-lg leading-relaxed">
+            At <strong>Anand IT Services</strong>, we bridge the gap between heavy software engineering and aggressive business growth. Founded and directed personally by <strong>Anand Upadhyay</strong>, every client works directly with experienced technical direction rather than disconnected sales intermediaries.
+          </p>
+          <p class="mt-4 text-gray-400 text-sm sm:text-base leading-relaxed">
+            Whether launching an Android and iOS application, restructuring an outdated web system into a reactive portal, or structuring high-converting digital advertising funnels—our focus remains on clear delivery timelines, resilient architecture, and tangible returns.
+          </p>
+
+          <!-- Core Values Badges -->
+          <div class="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div class="p-4 rounded-xl bg-brand-surface/40 border border-brand-border">
+              <h4 class="font-bold text-white text-base flex items-center gap-2">
+                <span class="text-brand-pink">✓</span> Direct Communication
+              </h4>
+              <p class="text-xs text-gray-400 mt-1">Direct access to the core team. No ticketing queues or layers of account managers.</p>
+            </div>
+            <div class="p-4 rounded-xl bg-brand-surface/40 border border-brand-border">
+              <h4 class="font-bold text-white text-base flex items-center gap-2">
+                <span class="text-brand-pink">✓</span> Transparent Delivery
+              </h4>
+              <p class="text-xs text-gray-400 mt-1">Complete ownership of source code, configurations, accounts, and documentation.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="process" class="py-24 bg-brand-dark border-b border-brand-border">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-2xl mx-auto mb-16">
+        <span class="text-xs font-bold uppercase tracking-widest text-brand-pink bg-brand-pink/10 px-3.5 py-1.5 rounded-full border border-brand-pink/20">
+          How We Work
+        </span>
+        <h2 class="mt-4 text-3xl sm:text-5xl font-bold font-display text-white">
+          A Predictable, 4-Step Process
+        </h2>
+        <p class="mt-4 text-base text-gray-400">
+          Clean execution from initial requirement gathering to production deployment and growth.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-6 relative">
+        
+        <!-- Step 1 -->
+        <div class="bg-brand-surface border border-brand-border p-6 rounded-2xl relative">
+          <div class="text-3xl font-display font-extrabold text-brand-pink/40 mb-3">01</div>
+          <h4 class="text-lg font-bold text-white mb-2">Discovery & Strategy</h4>
+          <p class="text-xs text-gray-400 leading-relaxed">
+            Detailed evaluation of your business goals, target audience, tech stack requirements, and growth benchmarks.
+          </p>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="bg-brand-surface border border-brand-border p-6 rounded-2xl relative">
+          <div class="text-3xl font-display font-extrabold text-brand-pink/40 mb-3">02</div>
+          <h4 class="text-lg font-bold text-white mb-2">Architecture & Design</h4>
+          <p class="text-xs text-gray-400 leading-relaxed">
+            Structuring modular application schemas, database entities, UI/UX user journeys, and campaign blueprints.
+          </p>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="bg-brand-surface border border-brand-border p-6 rounded-2xl relative">
+          <div class="text-3xl font-display font-extrabold text-brand-pink/40 mb-3">03</div>
+          <h4 class="text-lg font-bold text-white mb-2">Agile Engineering</h4>
+          <p class="text-xs text-gray-400 leading-relaxed">
+            Writing test-driven code, implementing secure RESTful APIs, configuring on-page technical SEO, and building marketing funnels.
+          </p>
+        </div>
+
+        <!-- Step 4 -->
+        <div class="bg-brand-surface border border-brand-border p-6 rounded-2xl relative">
+          <div class="text-3xl font-display font-extrabold text-brand-pink/40 mb-3">04</div>
+          <h4 class="text-lg font-bold text-white mb-2">Deployment & Scale</h4>
+          <p class="text-xs text-gray-400 leading-relaxed">
+            App Store & Play Store publishing, cloud server deployment, conversion tracking, and ongoing iterative scaling.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <section id="why-us" class="py-24 bg-brand-black border-b border-brand-border">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-widest text-brand-pink bg-brand-pink/10 px-3.5 py-1.5 rounded-full border border-brand-pink/20">
+            The Anand IT Advantage
+          </span>
+          <h2 class="mt-4 text-3xl sm:text-4xl font-bold font-display text-white">
+            Built For Business Growth, Not Just Aesthetics
+          </h2>
+          <p class="mt-4 text-gray-400 leading-relaxed">
+            Software alone isn't enough; neither is marketing without a high-speed technical foundation. Anand IT Services brings both under one roof so your applications convert visitors into lasting revenue.
+          </p>
+
+          <div class="mt-8 space-y-4">
+            <div class="flex items-start gap-4">
+              <div class="p-2 rounded-lg bg-brand-pink/10 border border-brand-pink/20 text-brand-pink mt-1">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+              </div>
+              <div>
+                <h4 class="text-base font-bold text-white">Performance-Tuned Tech Stack</h4>
+                <p class="text-xs text-gray-400 mt-1">Zero bloated templates. We write lean, modern code built to load in milliseconds and scale seamlessly.</p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-4">
+              <div class="p-2 rounded-lg bg-brand-pink/10 border border-brand-pink/20 text-brand-pink mt-1">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+              </div>
+              <div>
+                <h4 class="text-base font-bold text-white">Integrated SEO from Day One</h4>
+                <p class="text-xs text-gray-400 mt-1">All web and app projects come pre-optimized for crawlability, rich snippets, Core Web Vitals, and indexing.</p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-4">
+              <div class="p-2 rounded-lg bg-brand-pink/10 border border-brand-pink/20 text-brand-pink mt-1">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+              </div>
+              <div>
+                <h4 class="text-base font-bold text-white">Dedicated Support & Direct Founder Touchpoint</h4>
+                <p class="text-xs text-gray-400 mt-1">Instant support directly via phone or WhatsApp. No automated chatbots or unresolved tickets.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Side Quick Highlight Box -->
+        <div class="bg-brand-surface border border-brand-border rounded-3xl p-8 lg:p-10">
+          <h3 class="text-2xl font-bold font-display text-white mb-6">Need a Fast Turnaround?</h3>
+          <p class="text-gray-300 text-sm leading-relaxed mb-6">
+            Have an immediate app deadline, a website that needs urgent speed and SEO fixes, or want to launch performance ad campaigns this week?
+          </p>
+
+          <div class="space-y-4">
+            <div class="p-4 rounded-xl bg-brand-dark/80 border border-brand-border flex items-center justify-between">
+              <div>
+                <p class="text-xs text-gray-400">Direct Phone Line</p>
+                <p class="text-base font-bold text-white">+91 9537384060</p>
+              </div>
+              <a href="tel:+919537384060" class="px-4 py-2 bg-brand-pink hover:bg-brand-pinkLight text-white rounded-lg text-xs font-bold transition-all">
+                Call Now
+              </a>
+            </div>
+
+            <div class="p-4 rounded-xl bg-brand-dark/80 border border-brand-border flex items-center justify-between">
+              <div>
+                <p class="text-xs text-gray-400">Direct WhatsApp</p>
+                <p class="text-base font-bold text-emerald-400">Online & Responsive</p>
+              </div>
+              <a href="https://wa.me/919537384060?text=Hi%20Anand%2C%20I%20have%20an%20urgent%20inquiry." target="_blank" rel="noopener noreferrer" class="px-4 py-2 bg-emerald-600 hover:bg-emerald-500 text-white rounded-lg text-xs font-bold transition-all">
+                Chat
+              </a>
+            </div>
+
+            <div class="p-4 rounded-xl bg-brand-dark/80 border border-brand-border flex items-center justify-between">
+              <div>
+                <p class="text-xs text-gray-400">Official Inbox</p>
+                <p class="text-sm font-semibold text-gray-200">anandupadhyay03@gmail.com</p>
+              </div>
+              <a href="mailto:anandupadhyay03@gmail.com" class="px-4 py-2 bg-brand-surface border border-gray-600 hover:border-white text-white rounded-lg text-xs font-bold transition-all">
+                Send Mail
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <section id="contact" class="py-24 bg-brand-dark relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-2xl mx-auto mb-16">
+        <span class="text-xs font-bold uppercase tracking-widest text-brand-pink bg-brand-pink/10 px-3.5 py-1.5 rounded-full border border-brand-pink/20">
+          Direct Contact
+        </span>
+        <h2 class="mt-4 text-3xl sm:text-5xl font-bold font-display text-white">
+          Let’s Build Your Digital Product
+        </h2>
+        <p class="mt-4 text-base text-gray-400">
+          Reach out directly to Anand Upadhyay for quotes, project estimates, or technical consultations.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10">
+        
+        <!-- Direct Contact Information Cards -->
+        <div class="lg:col-span-5 space-y-6">
+          
+          <!-- Card: Phone -->
+          <div class="bg-brand-surface border border-brand-border rounded-2xl p-6 transition-all hover:border-gray-500">
+            <div class="flex items-start gap-4">
+              <div class="w-12 h-12 rounded-xl bg-brand-pink/10 border border-brand-pink/20 flex items-center justify-center text-brand-pink flex-shrink-0">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+                </svg>
+              </div>
+              <div class="flex-1">
+                <h4 class="text-xs uppercase font-semibold text-gray-400 tracking-wider">Phone / Voice Call</h4>
+                <a href="tel:+919537384060" class="text-xl font-bold text-white hover:text-brand-pink transition-colors block mt-0.5">
+                  +91 9537384060
+                </a>
+                <div class="mt-3 flex gap-2">
+                  <a href="tel:+919537384060" class="text-xs px-3 py-1.5 rounded-lg bg-brand-pink text-white font-semibold hover:bg-brand-pinkLight">
+                    Call Now
+                  </a>
+                  <button onclick="copyToClipboard('+919537384060', 'Phone number copied!')" class="text-xs px-3 py-1.5 rounded-lg bg-brand-dark border border-brand-border text-gray-300 hover:text-white font-medium">
+                    Copy Number
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card: WhatsApp -->
+          <div class="bg-brand-surface border border-brand-border rounded-2xl p-6 transition-all hover:border-gray-500">
+            <div class="flex items-start gap-4">
+              <div class="w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400 flex-shrink-0">
+                <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24">
+                  <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+                </svg>
+              </div>
+              <div class="flex-1">
+                <h4 class="text-xs uppercase font-semibold text-gray-400 tracking-wider">Instant Chat</h4>
+                <p class="text-xl font-bold text-white mt-0.5">WhatsApp Quick Message</p>
+                <div class="mt-3">
+                  <a href="https://wa.me/919537384060?text=Hi%20Anand%2C%20I%20would%20like%20to%20discuss%20a%20project%20with%20Anand%20IT%20Services." target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-xs px-3.5 py-1.5 rounded-lg bg-emerald-500 hover:bg-emerald-400 text-black font-bold">
+                    <span>Open WhatsApp Chat</span>
+                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card: Email -->
+          <div class="bg-brand-surface border border-brand-border rounded-2xl p-6 transition-all hover:border-gray-500">
+            <div class="flex items-start gap-4">
+              <div class="w-12 h-12 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center text-blue-400 flex-shrink-0">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                </svg>
+              </div>
+              <div class="flex-1">
+                <h4 class="text-xs uppercase font-semibold text-gray-400 tracking-wider">Official Email</h4>
+                <a href="mailto:anandupadhyay03@gmail.com" class="text-lg font-bold text-white hover:text-brand-pink transition-colors block mt-0.5 break-all">
+                  anandupadhyay03@gmail.com
+                </a>
+                <div class="mt-3 flex gap-2">
+                  <a href="mailto:anandupadhyay03@gmail.com" class="text-xs px-3 py-1.5 rounded-lg bg-brand-surface border border-brand-border hover:border-white text-white font-semibold">
+                    Draft Email
+                  </a>
+                  <button onclick="copyToClipboard('anandupadhyay03@gmail.com', 'Email copied!')" class="text-xs px-3 py-1.5 rounded-lg bg-brand-dark border border-brand-border text-gray-300 hover:text-white font-medium">
+                    Copy Email
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Interactive Direct Message Dispatcher Form -->
+        <div class="lg:col-span-7">
+          <div class="bg-brand-surface border border-brand-border rounded-3xl p-8 sm:p-10 shadow-2xl">
+            <h3 class="text-2xl font-bold font-display text-white">Send a Project Brief</h3>
+            <p class="text-sm text-gray-400 mt-1">Fill in the parameters below. Choose to send via direct Email or WhatsApp dispatch.</p>
+
+            <form id="project-inquiry-form" class="mt-8 space-y-5">
+              
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                <div>
+                  <label class="block text-xs font-semibold text-gray-300 uppercase tracking-wider mb-2">Your Name *</label>
+                  <input type="text" id="client-name" required placeholder="e.g. Rahul Sharma" class="w-full bg-brand-dark border border-brand-border rounded-xl px-4 py-3 text-sm text-white placeholder-gray-500 focus:outline-none focus:border-brand-pink transition-colors">
+                </div>
+                <div>
+                  <label class="block text-xs font-semibold text-gray-300 uppercase tracking-wider mb-2">Your Phone / Mobile *</label>
+                  <input type="tel" id="client-phone" required placeholder="+91 XXXXX XXXXX" class="w-full bg-brand-dark border border-brand-border rounded-xl px-4 py-3 text-sm text-white placeholder-gray-500 focus:outline-none focus:border-brand-pink transition-colors">
+                </div>
+              </div>
+
+              <div>
+                <label class="block text-xs font-semibold text-gray-300 uppercase tracking-wider mb-2">Select Primary Service *</label>
+                <select id="client-service" class="w-full bg-brand-dark border border-brand-border rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-brand-pink transition-colors">
+                  <option value="Android App Development">Android App Development</option>
+                  <option value="iOS App Development">iOS App Development</option>
+                  <option value="Web Development">Full-Stack Web Development</option>
+                  <option value="Search Engine Optimization (SEO)">Search Engine Optimization (SEO)</option>
+                  <option value="Digital Marketing & Performance Ads">Digital Marketing & Performance Ads</option>
+                  <option value="Complete Tech & Marketing Combo">Complete Tech & Marketing Combo (App + Web + SEO)</option>
+                </select>
+              </div>
+
+              <div>
+                <label class="block text-xs font-semibold text-gray-300 uppercase tracking-wider mb-2">Project Scope & Details</label>
+                <textarea id="client-message" rows="4" placeholder="Briefly describe your application concept, website goals, or marketing targets..." class="w-full bg-brand-dark border border-brand-border rounded-xl px-4 py-3 text-sm text-white placeholder-gray-500 focus:outline-none focus:border-brand-pink transition-colors"></textarea>
+              </div>
+
+              <!-- Two Dispatch Modes: Email and WhatsApp -->
+              <div class="pt-2 flex flex-col sm:flex-row gap-3">
+                <button type="button" onclick="submitToWhatsApp()" class="flex-1 inline-flex items-center justify-center gap-2.5 py-3.5 px-6 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-black font-bold text-sm transition-all shadow-lg">
+                  <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                    <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+                  </svg>
+                  <span>Send via WhatsApp</span>
+                </button>
+
+                <button type="button" onclick="submitToEmail()" class="flex-1 inline-flex items-center justify-center gap-2.5 py-3.5 px-6 rounded-xl bg-brand-pink hover:bg-brand-pinkLight text-white font-bold text-sm transition-all shadow-lg shadow-brand-pink/25">
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                  </svg>
+                  <span>Send via Email</span>
+                </button>
+              </div>
+
+            </form>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <footer class="bg-brand-black border-t border-brand-border py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="flex flex-col md:flex-row items-center justify-between gap-6 pb-8 border-b border-brand-border/60">
+        
+        <!-- Logo -->
+        <div class="flex items-center">
+          <svg class="h-10 w-auto" viewBox="0 0 260 90" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 72L36 12H48L72 72H57L51 55H33L27 72H12ZM37 42H47L42 27L37 42Z" fill="#FFFFFF"/>
+            <path d="M78 72V30H92V36.5C95.5 31.5 102 28.5 109 28.5C121 28.5 128 36 128 49V64C128 72 133 76 140 76C147 76 152 71.5 152 64V30H166V64C166 79 155 89 140 89C125 89 114 79 114 65V50C114 41 108 37 101 37C94 37 92 42 92 49V72H78Z" fill="#FFFFFF"/>
+            <path d="M174 20H188V50H174V20ZM168 20H194V29H168V20Z" fill="#FFFFFF"/>
+            <path d="M198 20H226V30H219V50H205V30H198V20Z" fill="#FFFFFF"/>
+            <text x="166" y="74" fill="#FFFFFF" font-family="'Space Grotesk', sans-serif" font-weight="700" font-size="22" letter-spacing="-0.5">Services</text>
+            <g transform="translate(208, 12)">
+              <path d="M22 6C15 6 9 10 7 17C12 17 17 15 22 11C27 15 32 17 37 17C35 10 29 6 22 6Z" fill="#E61A52"/>
+              <path d="M22 12V34M12 24H32" stroke="#E61A52" stroke-width="5" stroke-linecap="round"/>
+            </g>
+          </svg>
+        </div>
+
+        <!-- Quick Links (Internal Page only, Strictly No Socials) -->
+        <div class="flex flex-wrap justify-center gap-6 text-xs font-medium text-gray-400">
+          <a href="#services" class="hover:text-brand-pink transition-colors">Services</a>
+          <a href="#about" class="hover:text-brand-pink transition-colors">About Anand Upadhyay</a>
+          <a href="#process" class="hover:text-brand-pink transition-colors">Work Process</a>
+          <a href="#why-us" class="hover:text-brand-pink transition-colors">Why Choose Us</a>
+          <a href="#contact" class="hover:text-brand-pink transition-colors">Direct Contact</a>
+        </div>
+
+        <!-- Direct Contact Quick Links -->
+        <div class="flex items-center gap-4 text-xs font-semibold text-gray-300">
+          <a href="tel:+919537384060" class="hover:text-brand-pink transition-colors">+91 9537384060</a>
+          <span class="text-gray-600">|</span>
+          <a href="mailto:anandupadhyay03@gmail.com" class="hover:text-brand-pink transition-colors">anandupadhyay03@gmail.com</a>
+        </div>
+
+      </div>
+
+      <div class="mt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-gray-500 gap-4">
+        <p>© 2026 Anand IT Services. All rights reserved.</p>
+        <p>Managed & Directed by <strong class="text-gray-300 font-medium">Anand Upadhyay</strong></p>
+      </div>
+
+    </div>
+  </footer>
+
+  <script>
+    // Mobile navigation toggle
+    const mobileBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const mobileLinks = document.querySelectorAll('.mobile-link');
+
+    if (mobileBtn && mobileMenu) {
+      mobileBtn.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+      });
+
+      mobileLinks.forEach(link => {
+        link.addEventListener('click', () => {
+          mobileMenu.classList.add('hidden');
+        });
+      });
+    }
+
+    // Toast message notification helper
+    function showToast(message) {
+      const toast = document.getElementById('toast');
+      const toastMsg = document.getElementById('toast-message');
+      if (!toast || !toastMsg) return;
+
+      toastMsg.textContent = message;
+      toast.classList.remove('translate-y-24', 'opacity-0');
+      toast.classList.add('translate-y-0', 'opacity-100');
+
+      setTimeout(() => {
+        toast.classList.remove('translate-y-0', 'opacity-100');
+        toast.classList.add('translate-y-24', 'opacity-0');
+      }, 3000);
+    }
+
+    // Robust Clipboard Copy Function (using document.execCommand fallback for iframe reliability)
+    function copyToClipboard(text, successMsg) {
+      try {
+        const tempInput = document.createElement('textarea');
+        tempInput.value = text;
+        tempInput.style.position = 'fixed';
+        tempInput.style.opacity = '0';
+        document.body.appendChild(tempInput);
+        tempInput.select();
+        document.execCommand('copy');
+        document.body.removeChild(tempInput);
+        showToast(successMsg || 'Copied to clipboard!');
+      } catch (err) {
+        showToast('Value: ' + text);
+      }
+    }
+
+    // Get input values safely
+    function getFormData() {
+      const name = (document.getElementById('client-name').value || '').trim();
+      const phone = (document.getElementById('client-phone').value || '').trim();
+      const service = document.getElementById('client-service').value;
+      const message = (document.getElementById('client-message').value || '').trim();
+
+      if (!name || !phone) {
+        showToast('Please fill in your name and phone number.');
+        return null;
+      }
+
+      return { name, phone, service, message };
+    }
+
+    // WhatsApp Dispatch handler
+    function submitToWhatsApp() {
+      const data = getFormData();
+      if (!data) return;
+
+      const formattedText = `*New Project Inquiry - Anand IT Services*%0A%0A` +
+        `*Client Name:* ${encodeURIComponent(data.name)}%0A` +
+        `*Phone:* ${encodeURIComponent(data.phone)}%0A` +
+        `*Service Requested:* ${encodeURIComponent(data.service)}%0A` +
+        (data.message ? `*Project Brief:* ${encodeURIComponent(data.message)}%0A` : '') +
+        `%0A_Sent via Anand IT Services web portal_`;
+
+      const whatsappUrl = `https://wa.me/919537384060?text=${formattedText}`;
+      window.open(whatsappUrl, '_blank');
+    }
+
+    // Email Dispatch handler (mailto)
+    function submitToEmail() {
+      const data = getFormData();
+      if (!data) return;
+
+      const subject = encodeURIComponent(`Project Inquiry: ${data.service} - ${data.name}`);
+      const body = encodeURIComponent(
+        `Dear Anand,\n\n` +
+        `I would like to inquire about your services with Anand IT Services.\n\n` +
+        `Name: ${data.name}\n` +
+        `Phone: ${data.phone}\n` +
+        `Service Requested: ${data.service}\n\n` +
+        `Project Notes:\n${data.message || 'No additional notes provided.'}\n\n` +
+        `Looking forward to hearing from you.\n`
+      );
+
+      const mailtoUrl = `mailto:anandupadhyay03@gmail.com?subject=${subject}&body=${body}`;
+      window.location.href = mailtoUrl;
+    }
+  </script>
+
+</body>
+</html>
